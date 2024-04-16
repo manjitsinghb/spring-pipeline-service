@@ -1,11 +1,11 @@
 package com.spring;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.spring.pipeline.PipelineBuilder;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
-@SpringBootApplication
 public class App {
     public static void main(String[] args) {
-        SpringApplication.run(App.class, args);
+        PipelineBuilder.buildPipeline(() -> {return "hi";}, (e) -> e+"bye", System.out::println);
     }
 }
