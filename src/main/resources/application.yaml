@@ -1,0 +1,11 @@
+pipeline:
+  definitions:
+    - name: simplepipeline
+      parallelism: 2
+      consumer: mysqlConsumer
+      transformer: transformer
+      publishers:
+        - consolePublisher
+        - kakfaPublisher
+
+greeting: hello
