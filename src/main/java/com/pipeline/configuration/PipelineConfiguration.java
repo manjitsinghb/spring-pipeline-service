@@ -11,9 +11,6 @@ import org.springframework.context.annotation.PropertySource;
 @Configuration
 public class PipelineConfiguration {
 
-    @Value("${greeting}")
-    private String greeting;
-
     @Bean
     @ConfigurationProperties("pipeline")
     public PipelineDefinition definition(){

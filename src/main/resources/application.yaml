@@ -7,5 +7,3 @@ pipeline:
       publishers:
         - consolePublisher
         - kakfaPublisher
-
-greeting: hello
