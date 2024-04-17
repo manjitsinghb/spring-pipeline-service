@@ -16,7 +16,6 @@ public class PipelineConfiguration {
     public PipelineDefinition definition(){
         return new PipelineDefinition();
     }
-
 }
 
 
