@@ -1,10 +1,13 @@
 package com.pipeline.transformer;
 
+import com.amazonaws.services.sqs.model.Message;
 import com.spring.api.Transformer;
 
-public class StringTransformer implements Transformer<String,String> {
+import java.util.List;
+
+public class StringTransformer implements Transformer<List<Message>,String> {
     @Override
-    public String transform(String s) {
+    public String transform(List<Message> s) {
         return "transformed "+s;
     }
 }

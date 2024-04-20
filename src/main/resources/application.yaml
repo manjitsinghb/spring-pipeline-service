@@ -1,9 +1,22 @@
 pipeline:
+  configuration:
+    sqsconsumer:
+      region: us-west-1
+      credential:
+        secret: secret
+        access: key
+      queueUrl: https://sqs.us-west-2.amazonaws.com/342480056369/queue1
+    sqspublisher:
+      region: us-west-2
+      credential:
+        secret: secret
+        access: key
+      queueUrl: https://sqs.us-west-2.amazonaws.com/342480056369/queue2
   definitions:
     - name: simplepipeline
-      parallelism: 2
-      consumer: mysqlConsumer
+      parallelism: 8
+      consumer: sqsConsumer
       transformer: transformer
       publishers:
         - consolePublisher
-        - kakfaPublisher
+        - sqsPublisher

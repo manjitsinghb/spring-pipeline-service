@@ -1,5 +1,6 @@
 package com.pipeline.configuration;
 
+import com.amazonaws.services.sqs.model.Message;
 import com.pipeline.consumer.MysqlConsumer;
 import com.pipeline.producer.ConsolePublisher;
 import com.pipeline.producer.KafkaPublisher;
@@ -10,6 +11,8 @@ import com.spring.api.Transformer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 public class ConnectorConfiguration {
 
@@ -19,7 +22,7 @@ public class ConnectorConfiguration {
     }
 
     @Bean("transformer")
-    public Transformer<String,String> transformer(){
+    public Transformer<List<Message>,String> transformer(){
         return new StringTransformer();
     }
 
